@@ -1,0 +1,454 @@
+:root {
+  --primary-color: #0A1128;
+  --white-color: #FFFFFF;
+  --light-gray-color: #EEEEEE;
+  --bege: #fbd85a;
+  --marrom-escuro: #523d2e;
+  --marrom-medio: #8f5621;
+  --marrom-claro: #ba8347;
+  --laranja: #ec9a09;
+  --laranja2: #fba404;
+  --card: #daa969;
+  --secondary-color: crimson;
+  --gap: 3rem;
+  }
+
+  #root {
+    min-height: 100vh; /* Adicione esta linha */
+    display: flex; /* Adicione esta linha */
+    flex-direction: column; /* Adicione esta linha */
+  }
+
+  *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*ajustando o comportamento do
+  box-sizing*/
+  }
+  html{
+  font-size: 62.5%;
+  scroll-behavior: smooth; /*ajustando o comportamento do scroll
+  do mouse deixando o scroll mais suave*/
+  }
+  body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  line-height: 1.5;
+  min-height: 100vh;
+  }
+  h1, h2, h3, h4, h5, h6{
+  font-family: 'Montserrat', sans-serif;
+  }
+  h1{
+  font-size: 6rem;
+  
+  text-transform: uppercase;
+  }
+  h2 {
+  font-size: 6rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  line-height: 1.2; /*ajustando o espaçamento entre linhas*/
+  }
+  
+  a {
+  text-decoration: none; /*removendo o underline dos links*/
+  }
+  .main-bg {
+  background-image: url(assets/LogoPrinc.png);
+  background-color: #2b2424;
+  background-size: cover; /*ajustando a imagem de fundo*/
+  background-position: center center; /*ajustando a imagem de
+  fundo*/
+  color: var(--white-color); /*ajustando a cor de fundo*/
+  }
+  .white-bg {
+  background: var(--laranja2);
+  color: var(--primary-color);
+  }
+  .main-content {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 15rem var(--gap); /*ajustando o espaçamento entre
+  linhas*/
+  flex: 1;
+  }
+  /*aqui mexe na imagem do cachorro diretamente*/
+  .section {
+  min-height: 121vh;
+  }
+  .menu {
+  position: fixed; /*colocando o menu fixo na tela*/
+  
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1; /*colocando o menu acima do conteúdo*/
+  border-bottom: 0.1rem solid var(--laranja2);
+  }
+  .menu-content {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  padding-top: 0;
+  padding-bottom: 0;
+  }
+  
+  .menu-spacing {
+  height: 65px;
+  }
+  .menu h1 {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: var(--white-color);
+  margin-right: 400px;
+  }
+  /*aqui mexe no logo diretamente*/
+  .menu img {
+  width: 50px; /* Ajuste o tamanho do logo conforme necessário */
+  height: auto;
+  }
+  /*aqui mexe no home diretamente*/
+  .menu nav {
+  margin-left: 450px;
+  }
+  /* aqui mexe na cor c&g pet */
+  
+  /* fazendo a cor herdar do pai */
+  .menu h1 a {
+  color: inherit; /* herdando a cor do pai */
+  }
+  .menu ul{
+  list-style: none; /*removendo o bullet do menu*/
+  display: flex; /*colocando os itens em linha*/
+  }
+  .menu ul li a{
+  display: block;
+  padding: 2rem;
+  font-size: 1.8rem;
+  color: var(--white-color);
+  position: relative; /*colocando o efeito em relação ao topo da
+  tela*/
+  }
+  .menu ul li a::after {
+  content: ''; /*colocando o efeito em relação ao topo da tela*/
+  position: absolute; /*posionando referência do efeito em relação
+  ao topo da tela*/
+  bottom: 1rem;
+  left: 50%;
+  width: 0;
+  height: 0.2rem;
+  background: var(--secondary-color); /*alterando a cor do efeito*/
+  transition: all 300ms ease-in-out; /*animando o efeito do mouse*/
+  }
+  /* tudo que está acima faz o efeito quando o mouse passa no link
+  */
+  .menu ul li a:hover::after{
+  width: 30%; /*alterando a largura do efeito*/
+  left: 25%; /*alterando a posição do efeito*/
+  }
+  
+  .footer {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--laranja2);
+    background-color: var(--laranja2);
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .footer a {
+  color: var(--white-color);
+  }
+  
+  .footer p { /*Estilo do Páragrafo*/
+  margin: 0;
+  padding: 0.8rem;
+  }
+  .close-menu{
+  display: none;
+  }
+  
+  body .full-width {
+  width: 100%; /* ajustando a largura do conteúdo */
+  flex: 1 1 100%; /* ajustando o espaçamento do text area */
+  }
+  
+  /*Contatos */
+  /* Seção de contatos */
+  .contatos {
+  padding: 40px 20px;
+  background-color: var(--white-color);
+  text-align: center;
+  }
+  .contatos h1 {
+  
+  margin-top: 100px;
+  font-size: 3.5rem;
+  color: #0A1128;
+  }
+  /* Layout das cartas de contato */
+  .cards {
+  background-color: #dedad4;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 2fr); /* Duas colunas */
+  justify-content: space-between;
+  gap: 20px; /* Espaçamento entre os cards */
+  margin: 0 auto;
+  max-width: 1000px; /* Limitar a largura máxima para evitar
+  esticar demais em telas grandes */
+  }
+  
+  .cards .card {
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease;
+  /* width: calc(33.333% - 20px); */
+  /* min-width: 250px;
+  max-width: 600px; */
+  margin: 30px auto;
+  width: 400px;
+  }
+  .cards .card:hover {
+  transform: translateY(-5px); /* Efeito de hover para destacar o
+  card */
+  }
+.cards .card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ec9a09;
+  }
+  
+  .card p {
+  font-size: 1.5rem;
+  margin: 5px 0;
+  color: #333;
+  }
+  
+  .card a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #0066cc;
+  text-decoration: none;
+  }
+  
+  .card a:hover {
+  text-decoration: underline;
+  }
+  
+  /* Responsividade para tablets */
+  @media screen and (max-width: 768px) {
+  .card {
+  max-width: 100%; /* Cada card ocupará metade da tela em
+  tablets */
+  }
+  }
+  /* Responsividade para smartphones */
+  @media screen and (max-width: 480px) {
+  
+  .card {
+  width: 100%; /* Cada card ocupará 100% da largura em
+  smartphones */
+  }
+  .contatos h1 {
+  font-size: 2rem; /* Reduz o tamanho do título em telas
+  pequenas */
+  }
+  }
+  
+  /* Seção Hero */
+  .hero {
+  display: flex;
+  justify-content: flex-end;
+  }
+  
+  .hero-text p {
+  font-weight: bolder;
+  color: #0A1128;
+  margin: 0;
+  font-size: 34px;
+  }
+  
+  .icons img {
+  width: 70px;
+  margin: 0 10px;
+  }
+  
+  /* Estrutura dos ícones */
+  .icons {
+  display: flex;
+  justify-content: center; /* Mantém os ícones à direita */
+  margin: 20px 0;
+  }
+  .icon-item {
+  display: flex;
+  
+  flex-direction: column;
+  align-items: center; /* Centraliza o texto abaixo de cada ícone
+  */
+  margin: 0 10px;
+  }
+  .icon-item img {
+  width: 100px;
+  margin-bottom: 5px; /* Espaço entre o ícone e o nome */
+  }
+  .icon-item p {
+  font-size: 2rem; /* Ajuste do tamanho da fonte do nome */
+  text-align: center;
+  color: #0A1128; /* Cor do texto */
+  }
+  
+  /* Austes responsivos */
+  @media screen and (max-width: 768px) {
+  .hero {
+  flex-direction: column; /* Coloca os ícones abaixo do texto
+  em telas menores */
+  align-items: center;
+  padding-right: 0;
+  margin-left: 0;
+  }
+  
+  .hero-text {
+  text-align: center; /* Centraliza o texto */
+  }
+  
+  .icons {
+  justify-content: center; /* Centraliza os ícones */
+  }
+  
+  .icon-item img {
+  width: 50px; /* Ajusta o tamanho dos ícones em telas menores
+  */
+  
+  }
+  }
+  @media screen and (max-width: 480px) {
+  .hero-text p {
+  font-size: 2.5rem; /* Ajusta o tamanho da fonte para telas
+  muito pequenas */
+  }
+  
+  .icon-item img {
+  width: 40px; /* Reduz ainda mais os ícones em telas menores
+  */
+  }
+  .icon-item p {
+  font-size: 0.8rem; /* Diminui o tamanho da fonte dos nomes
+  em telas pequenas */
+  }
+  }
+  
+  /* Seção About */
+  .about {
+  display: flex;
+  justify-content: center; /* Alinha o conteúdo no centro
+  horizontalmente */
+  align-items: center;
+  height: 400px;
+  padding: 40px;
+  background-color: #fff;
+  text-align: center; /* Centraliza o texto horizontalmente */
+  }
+  
+  .about h2 {
+  position: absolute;
+  font-size: 36px; /* Aumenta o tamanho do título */
+  margin-bottom: 300px; /* Posiciona o título mais próximo do
+  parágrafo */
+  
+  margin-right: 500px;
+  text-align: left; /* Alinha o título à esquerda */
+  }
+  
+  .about p {
+  max-width: 600px; /* Aumenta o tamanho máximo do texto */
+  margin: 0 auto; /* Centraliza o parágrafo horizontalmente */
+  margin-right: 170px;
+  text-align: justify; /* Centraliza o texto dentro do parágrafo
+  */
+  line-height: 1.5; /* Melhora a legibilidade aumentando o
+  espaçamento entre linhas */
+  }
+  
+  .about-image {
+  margin-left: 20px;
+  }
+  
+  .about-image img {
+  width: 400px;
+  border-radius: 20%;
+  }
+  
+  /* Media Queries para responsividade */
+  
+  /* Ajuste para telas menores que 768px (tablets e celulares) */
+  @media (max-width: 768px) {
+  .about {
+  flex-direction: column; /* Empilha os elementos verticalmente
+  */
+  
+  height: auto; /* Deixa a altura se ajustar automaticamente
+  */
+  padding: 20px;
+  }
+  
+  .about h2 {
+  font-size: 28px; /* Reduz o tamanho do título em telas
+  menores */
+  margin-bottom: 10px;
+  }
+  
+  .about p {
+  max-width: 90%; /* Aumenta a largura do parágrafo em relação
+  à tela */
+  text-align: center; /* Centraliza o texto */
+  }
+  
+  .about-image {
+  margin: 20px 0;
+  }
+  
+  .about-image img {
+  width: 90%; /* Ocupa a maior parte da tela */
+  max-width: 300px; /* Ajusta o tamanho máximo */
+  }
+  }
+  
+  /* Ajuste para telas muito pequenas (celulares com largura menor
+  que 480px) */
+  @media (max-width: 480px) {
+  .about h2 {
+  font-size: 24px;
+  
+  text-align: center; /* Centraliza o título em telas pequenas
+  */
+  }
+  
+  .about p {
+  font-size: 16px; /* Ajusta o tamanho do texto */
+  max-width: 95%; /* Ajusta a largura do texto */
+  }
+  }
+  /*Barra de pesquisa */
+  /* Estiliza os inputs dentro das seções */
+  section input {
+  width: 50rem; /* Largura dos inputs */
+  border: none; /* Remove a borda padrão */
+  padding: 1rem; /* Espaçamento interno */
+  border-radius: 1.5rem; /* Borda arredondada */
+  margin-bottom: 1rem; /* Espaçamento abaixo dos inputs */
+  color: #150101; /* Cor do texto */
+  background-color: #dedad4;
+  font-size: 2.5rem; /* Tamanho da fonte */
+  box-sizing: border-box; /* Inclui padding e border na largura
+  total */
+  }
